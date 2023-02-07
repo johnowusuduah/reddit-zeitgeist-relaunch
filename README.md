@@ -1,1 +1,1 @@
-# reddit-zeitgeist-relaunch
+# Reddit-Zeitgeist-App
