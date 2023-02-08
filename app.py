@@ -9,11 +9,6 @@ import os
 
 app = Flask(__name__)
 
-# define environment variables
-os.environ['RED_CLIENT_ID'] = "m68uhv8gGWT-CHlnLCYJNA"
-os.environ['RED_CLIENT_SECRET'] = "7JsvqWC1j-RN-oirdzjKPW2uQDsHAA"
-os.environ['RED_USER_AGENT'] = "Reddit_Analyzer_1.0_John"
-
 # HOME VIEW
 @app.route("/", methods=["POST","GET"])
 def home():
