@@ -23,7 +23,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          pip install --upgrade pip
+          pip3 install pytest
           pip3 install -r requirements.txt
+
       - name: Test Application
         run: |
           export FLASK_APP=app.py
@@ -31,6 +34,7 @@ jobs:
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
           pytest
+
       - name: Build Application
         run: |
           export FLASK_APP=app.py
