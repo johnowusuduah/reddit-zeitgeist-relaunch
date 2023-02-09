@@ -27,6 +27,7 @@ jobs:
 
       - name: Test Application
         run: |
+          export FLASK_APP=app.py
           export RED_CLIENT_ID=$RED_CLIENT_ID
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
@@ -34,6 +35,7 @@ jobs:
 
       - name: Build Application
         run: |
+          export FLASK_APP=app.py
           export RED_CLIENT_ID=$RED_CLIENT_ID
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
