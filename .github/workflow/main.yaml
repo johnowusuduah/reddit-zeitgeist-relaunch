@@ -1,5 +1,4 @@
 name: reddit-zeitgeist
-
 on:
   push:
     branches: [main]
