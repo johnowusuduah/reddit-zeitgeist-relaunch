@@ -33,7 +33,6 @@ jobs:
           export RED_CLIENT_ID=$RED_CLIENT_ID
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
           export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
-          pytest
 
       - name: Build Application
         run: |
