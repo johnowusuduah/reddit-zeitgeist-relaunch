@@ -9,11 +9,6 @@ import os
 
 app = Flask(__name__)
 
-# define environment variables
-os.environ['RED_CLIENT_ID'] = "m68uhv8gGWT-CHlnLCYJNA"
-os.environ['RED_CLIENT_SECRET'] = "7JsvqWC1j-RN-oirdzjKPW2uQDsHAA"
-os.environ['RED_USER_AGENT'] = "Reddit_Analyzer_1.0_John"
-
 # HOME VIEW
 @app.route("/", methods=["POST","GET"])
 def home():
@@ -22,16 +17,9 @@ def home():
     else:
         return render_template("home-form.html")
 
-
 # VIEW TO FETCH DATA FROM REDDIT AND POST TO SAGEMAKER ENDPOINT
 @app.route("/predict", methods=["POST","GET"])
 def predict():
-
-    # PULL SUBMISSIONS FROM REDDIT API
-    RED_CLIENT_ID = os.environ.get('RED_CLIENT_ID', 'not_set')
-    RED_CLIENT_SECRET = os.environ.get('RED_CLIENT_SECRET', 'not_set')
-    RED_USER_AGENT = os.environ.get('RED_USER_AGENT', 'not_set')
-
     # praw object with credentials that returns reddit data
     reddit = praw.Reddit(
     client_id=RED_CLIENT_ID,
