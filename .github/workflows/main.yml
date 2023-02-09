@@ -1,0 +1,40 @@
+name: reddit-zeitgeist
+on:
+  push:
+    branches: [main]
+
+env:
+  RED_CLIENT_ID: ${{ secrets.RED_CLIENT_ID }}
+  RED_CLIENT_SECRET: ${{ secrets.RED_CLIENT_SECRET }}
+  RED_USER_AGENT: ${{ secrets.RED_USER_AGENT }}
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Install Dependencies
+        run: |
+          pip3 install -r requirements.txt
+      - name: Test Application
+        run: |
+          export FLASK_APP=app.py
+          export RED_CLIENT_ID=$RED_CLIENT_ID
+          export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
+          export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
+          pytest
+      - name: Build Application
+        run: |
+          export FLASK_APP=app.py
+          export RED_CLIENT_ID=$RED_CLIENT_ID
+          export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
+          export RED_CLIENT_SECRET=$RED_CLIENT_SECRET
+          flask run
